@@ -15,7 +15,7 @@
   <?php
 
     
-    require 'db-config.php';
+    require 'config.php';
     require 'db-connection.php';
     require 'db-query.php';
 

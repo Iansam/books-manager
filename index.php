@@ -7,22 +7,13 @@
   <title>Gerenciador de biblioteca pessoal</title>
 </head>
 <body>
-  <p>Teste</p>
-  <div>
-    
-  </div>
-  
   <?php
-
-    
     require 'config.php';
     require 'db-connection.php';
     require 'db-query.php';
 
     /**
-     * Testando a leitura da dados no banco.
-     * 
-     * TODO: documentar a API desse método descrevendo o que ele espera como parâmetro e o que ele retorna.
+     * Testando READ da dados no banco.
      * 
      * $books = select('books');
      * $books = select('books', "WHERE author = 'Lima Barreto'");
@@ -31,46 +22,10 @@
      * var_dump($books);
      */
 
+     $books = select('books');
+    // var_dump($books);
 
-
-
-
-
-
-    /*
-    $book = array(
-      'name' => 'Triste Fim de Policarpo Quaresma'
-    );
-    var_dump(update('books', $book, 'id = 5'));
-    */
-
-
-    
-    
-    
-    //var_dump($books);
-
-    /*
-    $book = array(
-      'name'  => 'Clara dos Anjos',
-      'author' => 'Lima Barreto'
-    );
-    */
-
-    /*
-    $create = DBCreate('books', $book);
-
-    var_dump($create);
-
-    if($create)
-      echo 'ok';
-    else
-      echo ':/';
-    */
-
-    //$query = "INSERT INTO livros ( nome, autor ) values ( 'Um Defeito de Cor', 'Ana Maria Gonçalves' )";
-    //var_dump(DBExecute($query));
-
+    // echo $books;
   ?>
 </body>
 </html>

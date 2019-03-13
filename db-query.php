@@ -2,8 +2,26 @@
 
 /**
  * 
- * Altera registros
- * 
+ * Executa query
+ * @param String
+ */
+function executeQuery($query) {
+  $link   = openConnection();
+  
+
+  $result = @mysqli_query($link, $query) 
+    or die(mysqli_error($link));
+
+
+  closeConnection($link);
+  return $result;
+}
+
+/**
+ * UPDATE
+ * @param String
+ * @param Array
+ * @param String
  */
 function update($tableName, array $data, $where = null) {
   foreach($data as $key => $value) {
@@ -20,10 +38,8 @@ function update($tableName, array $data, $where = null) {
 }
 
 /**
- * 
- * Ler Registros
- * TODO: documentar a API desse método descrevendo o que ele espera como parâmetro e o que ele retorna.
- * @param: $table: nome da tabela.
+ * READ
+ * @param String
  * @return: dados lidos da tabela.
  */
 function select($tableName, $params = null, $fields = '*') {
@@ -45,9 +61,9 @@ function select($tableName, $params = null, $fields = '*') {
 }
 
 /**
- * 
- * Grava registros
- * 
+ * CREATE
+ * @param String
+ * @param Array
  */
 function insertInto($tableName, array $data) {
   $tableName  = DB_PREFIX.'_'.$tableName;
@@ -59,17 +75,4 @@ function insertInto($tableName, array $data) {
   $query      = "INSERT INTO {$tableName} ( {$fields} ) VALUES ( {$values} )";
 
   return executeQuery($query);
-}
-
-/**
- * 
- * Executa queries
- * 
- */
-function executeQuery($query) {
-  $link   = openConnection();
-  $result = @mysqli_query($link, $query) or die(mysqli_error($link));
-
-  closeConnection($link);
-  return $result;
 }

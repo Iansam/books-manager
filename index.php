@@ -22,10 +22,27 @@
      * var_dump($books);
      */
 
-     $books = select('books');
-    // var_dump($books);
+    /**
+     * $tableName = "books";
+     * $data      = array(
+     * 'name' => "Infância",
+     * 'author' => "Graciliano Ramos"
+     * );
+     * 
+     * $result = insertInto($tableName, $data);
+     * 
+     * var_dump($result);
+     */ 
 
-    // echo $books;
+    /**
+     * $tableName = "books";
+     * $bookName  = "Infância";
+     * 
+     * delete($tableName, "name = 'Infância'");
+     * $result    = delete($tableName, "name = 'Infância'");
+     * var_dump($result);
+     */
+    
   ?>
 </body>
 </html>

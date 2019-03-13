@@ -4,6 +4,7 @@
  * 
  * Executa query
  * @param String
+ * @return Object
  */
 function executeQuery($query) {
   $link   = openConnection();
@@ -40,7 +41,7 @@ function update($tableName, array $data, $where = null) {
 /**
  * READ
  * @param String
- * @return: dados lidos da tabela.
+ * @return Array
  */
 function select($tableName, $params = null, $fields = '*') {
   $tableName  = DB_PREFIX.'_'.$tableName;
@@ -74,5 +75,22 @@ function insertInto($tableName, array $data) {
 
   $query      = "INSERT INTO {$tableName} ( {$fields} ) VALUES ( {$values} )";
 
+  return executeQuery($query);
+}
+
+/**
+ * DELETE
+ * @param String
+ * @param String
+ */
+function delete($tableName, $where = null) {
+  // Prefixo da tabela.
+  $tableName  = DB_PREFIX.'_'.$tableName;
+
+  $where      = ($where) ? " WHERE {$where}" : null;
+
+  $query      = "DELETE FROM {$tableName}{$where}";
+
+  var_dump($query);
   return executeQuery($query);
 }

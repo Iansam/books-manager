@@ -7,10 +7,12 @@
 function openConnection() {
 
   // Set hostname, username, password and DB name.
-  $Conetion = @mysqli_connect(DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_DATABASE) or die(mysqli_connect_error());
+  $Conetion = @mysqli_connect(DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_DATABASE) 
+    or die(mysqli_connect_error());
   
   // Set charset.
-  mysqli_set_charset($Conetion, DB_CHARSET) or die(mysqli_error($Conetion));
+  mysqli_set_charset($Conetion, DB_CHARSET) 
+    or die(mysqli_error($Conetion));
 
   return $Conetion;
 }
@@ -20,7 +22,8 @@ function openConnection() {
  * @param Object
  */
 function closeConnection($Conetion) {
-  mysqli_close($Conetion) or die(mysqli_error($Conetion));
+  mysqli_close($Conetion) 
+    or die(mysqli_error($Conetion));
 }
 
 /**
